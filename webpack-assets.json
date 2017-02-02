@@ -1,8 +1,8 @@
 {
   "main": {
-    "js": "/thiagotguimaraes.github.io/main.bundle.js"
+    "js": "/thiagotguimaraes.github.io/main.26f5dd5da6ae7685775a.bundle.js"
   },
   "polyfills": {
-    "js": "/thiagotguimaraes.github.io/polyfills.bundle.js"
+    "js": "/thiagotguimaraes.github.io/polyfills.bf2f7ce919964c54e633.bundle.js"
   }
 }

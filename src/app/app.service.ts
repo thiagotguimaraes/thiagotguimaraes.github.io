@@ -39,8 +39,8 @@ export class AppState {
     return JSON.parse(JSON.stringify(object));
   }
 
-  public getMockData() {
-    return this.http.get('').map(res => {
+  public getMockData(url) {
+    return this.http.get(url).map(res => {
       return res;
     });
   }

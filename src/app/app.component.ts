@@ -2,10 +2,10 @@
  * Angular 2 decorators and services
  */
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
-import { HttpService } from './service/http-service';
 import { WidgetComponent } from './widget/widget.component';
 import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
 import { AppState } from './app.service'
+import { AppConstantService } from './service/app-constant-service';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
@@ -24,15 +24,15 @@ import 'rxjs/add/operator/mergeMap';
   templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  public data: Array<Object>;
-  public currentObject: Object;
+  private data: Array<Object>;
+  private currentObject: Object;
   private dataLoaded: Boolean = false;
   private targetObject: Object;
   private source: string;
   private pageNotFound: Boolean;
+  private url: string = AppConstantService.API().MOCK.API_MOCK;
 
   constructor(
-    public http: HttpService,
     private route: ActivatedRoute,
     private router: Router,
     private activatedRoute: ActivatedRoute,
@@ -48,20 +48,20 @@ export class AppComponent implements OnInit {
       return null;
     }).subscribe((res) => {
       console.log(res)
-      if (this.dataDidLoaded()) {
-        this.getTargetObject(this.data);
+      if (this._dataDidLoaded()) {
+        this._getTargetObject(this.data);
       } else {
-        this.appService.getMockData().subscribe(data => {
+        this.appService.getMockData(this.url).subscribe(data => {
           this.data = data;
           this.dataLoaded = true;
-          this.getTargetObject(data);
+          this._getTargetObject(data);
         })
       }
     });
   }
 
 
-  getTargetObject(data) {
+  private _getTargetObject(data) {
     if (data) {
       for (let i = 0; i < data.length; i++) {
         if (data[i]['app_id'] === this.source) {
@@ -77,7 +77,7 @@ export class AppComponent implements OnInit {
 
 
 
-  dataDidLoaded(): Boolean {
+  private _dataDidLoaded(): Boolean {
     if (this.dataLoaded) {
       return true;
     } else {

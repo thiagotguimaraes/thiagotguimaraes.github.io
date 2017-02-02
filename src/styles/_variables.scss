@@ -1,1 +1,56 @@
 $nav-button-color: #00838F;
+
+$positive:                        #5E5E5E !default; /* rgb(27,54,93) */
+$assertive:                       #2B2B2B !default; /* rgb(220,107,47) */
+$assertive-dark:                  #212121 !default; /* rgb(192,81,49) */
+$light:                           #B3CD4E !default;
+$calm:                            #FFFFFF !default;
+$dark:                            #212121 !default;
+
+// Fontes
+$app-font-family:                 "Open Sans Light" !default;
+$app-font-family-light:           "Open Sans Light" !default;
+$font-family-sans-serif:          "Open Sans Light", "Helvetica Neue", "Roboto", "Segoe UI", sans-serif !default;
+$font-family-light-sans-serif:    "Open Sans Light", "HelveticaNeue-Light", "Roboto-Light", "Segoe UI-Light", sans-serif-light !default;
+
+// Minhas cores
+$gray:                            #5E5E5E !default; /* rbg(151,153,155) */
+$gray-dark:                       #1c1c1c !default;
+$gray-darkest:                    #212121 !default;
+$white:                           white !default;
+
+// Automacoes
+$slack-bg:                        #4f3450 !default;
+$iugu-bg:                         #212121 !default;
+$google_sheets-bg:                #0c7742 !default;
+$pagar_me-bg:                     #f37021 !default;
+$pag_seguro-bg:                   #96c12e !default;
+$mailchimp-bg:                    #212121 !default;
+$rd_station-bg:                   #433828 !default;
+$stripe-bg:                       #212121 !default;
+$nfe_io-bg:                       #20653D !default;
+$mandrill-bg:                     #212121 !default;
+$paypal-bg:                       #0E3178 !default;
+$mercado_pago-bg:                 #009EE3 !default;
+$nibo-bg:                         #212121 !default;
+$typeform-bg:                     #343a40 !default;
+$pipedrive-bg:                    #222 !default;
+
+// Tamanhos
+$font-size-x-small:               11px !default;
+$font-size-small:                 13px !default;
+$font-size-base:                  16px !default;
+$font-size-large:                 18px !default;
+$font-size-xlarge:                20px !default;
+
+$icon-x-small:                    22px;
+$icon-small:                      26px;
+$icon-medium:                     36px;
+$icon-large:                      48px;
+$icon-xlarge:                     56px;
+$icon-xxlarge:                    68px;
+
+$item-list-padding:               40px;
+
+$largura-iphone4:                 320px;
+$largura-iphone6:                 375px;

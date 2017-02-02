@@ -1,39 +1,123 @@
 /*styles for home content only*/
 
-.item {
+
+.automation-item {
+    border-radius: 3px;
+    background-clip: padding-box;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 15px auto;
+    border-top: 1px solid #e7ebef;
+    background-color: #fff;
+    box-shadow: 0 1px 1px 1px rgba(66,113,151,.09);
+    -webkit-box-shadow: rgba(66,113,151,.09) 0 1px 1px 1px;
+    -moz-box-shadow: rgba(66,113,151,.09) 0 1px 1px 1px;
     position: relative;
-    align-items: center;
-    margin: 20px 20px;
-    border: solid 1px;
-    height: 60px;
+    display: table;
 }
-
-.item_prop {
-    padding: 0px 20px;
-    display: inline-block;
-}
-
-.button {
-    float: right;
+.automation-apps-container {
+    overflow: hidden;
     position: relative;
+    width: 200px;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0px;
 }
 
-
-.name {
-   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.pic {
-    position: absolute;
-    height: 100%;
+.automation-app {
+    display: block;
+    overflow: hidden;
+    float: left;
+    height: 80px;
     width: 100px;
-    background: lightblue;
+    position: relative;
 }
 
-.wrap {
-    word-wrap: break-word;
-    max-width: 400px;
+.automation-app img {
+    display: block;
+    margin: 0 auto;
+    height: 60%;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.caret {
+    font-size: 1.5em;
+    color: #333;
+    padding: 2px .5em;
+    background: #fff;
+    border-radius: 50%;
+    background-clip: padding-box;
+    top: 25px;
+    z-index: 2;
+    height: 30px;
+    width: 30px;
+    display: block;
+    text-align: center;
+    margin: 0 auto;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    transform: translateY(-50%);
+
+}
+
+.fa {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.fa-angle-right:before {
+    content: "\F105";
+}
+
+*, :after, :before {
+    box-sizing: border-box;
+}
+
+.automation-title {
+    font-size: 1em;
+    font-weight: 500;
+    text-align: left;
+    display: table-cell;
+    vertical-align: middle;
+    width: 55%;
+    min-height: 80px;
+    height: auto;
+    padding: .75em 0px .75em 30px;
+}
+
+.automation-button {
+    transition: all .3s ease-in-out;
+    border-radius: 40px;
+    background-clip: padding-box;
+    background-color: #41baff;
+    color: #fff;
+    text-transform: uppercase;
+    padding: .9em 2em;
+    border: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    text-indent: 0;
+    outline: none;
+    font-family: proxima-nova,sans-serif;
+    font-weight: 600;
+    font-size: .95em;
+    padding: .7em .9em;
+    margin: 0 10px 0 0;
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
 }

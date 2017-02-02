@@ -1,5 +1,5 @@
 <template ngFor let-automation [ngForOf]="currentList">
-    <div class="item">
+    <!--<div class="item">
         <div class="pic item_prop">
             <div class="name">{{automation.slug}}</div>
         </div>
@@ -11,6 +11,22 @@
                 <div>AUTOMATIZAR</div>
             </a>
         </div>
+    </div>-->
+
+    <div class="automation-item">
+        <div class="automation-apps-container pag_seguro-google_sheets-automatization">
+            <div class="automation-app {{automation.source}}">
+                <img src="https://widget.pluga.co/img/icons-tools-page/{{automation.source}}-icon.svg" alt="{{automation.slug}} - Pluga">
+            </div>
+            <span class="fa fa-angle-right caret"></span>
+            <div class="automation-app {{automation.target}}">
+                <img src="https://widget.pluga.co/img/icons-tools-page/{{automation.target}}-icon.svg" alt="{{automation.target}} - Pluga">
+            </div>
+        </div>
+        <div class="automation-title">
+            <p>{{automation.description}}</p>
+        </div>
+        <a class="automation-button" target="_blank" href="https://pluga.co{{automation.url}}">Automatizar</a>
     </div>
 
 </template>

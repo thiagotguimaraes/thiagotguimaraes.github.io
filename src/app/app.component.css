@@ -6,3 +6,20 @@ html, body{
 a.active {
   background-color: gray;
 }
+
+.main-wrapper {
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+.div-wrapper {
+    width: 80%;
+    background: #f8f8f8;
+    border: 1px solid #e7ebef;
+    margin: 0 auto;
+    padding: 20px 2% 15px;
+    border-radius: 5px;
+    background-clip: padding-box;
+}

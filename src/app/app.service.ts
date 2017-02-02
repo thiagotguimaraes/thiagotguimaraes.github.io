@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { HttpService } from './service/http-service';
 
 export type InternalStateType = {
   [key: string]: any
@@ -7,7 +8,11 @@ export type InternalStateType = {
 @Injectable()
 export class AppState {
 
-  public _state: InternalStateType = { };
+  constructor(public http: HttpService) {
+
+  }
+
+  public _state: InternalStateType = {};
 
   // already return a clone of the current state
   public get state() {
@@ -31,6 +36,12 @@ export class AppState {
 
   private _clone(object: InternalStateType) {
     // simple object clone
-    return JSON.parse(JSON.stringify( object ));
+    return JSON.parse(JSON.stringify(object));
+  }
+
+  public getMockData() {
+    return this.http.get('').map(res => {
+      return res;
+    });
   }
 }

@@ -1,0 +1,16 @@
+<template ngFor let-automation [ngForOf]="currentList">
+    <div class="item">
+        <div class="pic item_prop">
+            <div class="name">{{automation.slug}}</div>
+        </div>
+        <div class="item_prop">
+            <div class="wrap name">{{automation.description}}</div>
+        </div>
+        <div class="item_prop button">
+            <a href="https://pluga.co{{automation.url}}">
+                <div>AUTOMATIZAR</div>
+            </a>
+        </div>
+    </div>
+
+</template>

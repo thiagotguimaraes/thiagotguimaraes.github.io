@@ -1,0 +1,39 @@
+/*styles for home content only*/
+
+.item {
+    position: relative;
+    align-items: center;
+    margin: 20px 20px;
+    border: solid 1px;
+    height: 60px;
+}
+
+.item_prop {
+    padding: 0px 20px;
+    display: inline-block;
+}
+
+.button {
+    float: right;
+    position: relative;
+}
+
+
+.name {
+   position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pic {
+    position: absolute;
+    height: 100%;
+    width: 100px;
+    background: lightblue;
+}
+
+.wrap {
+    word-wrap: break-word;
+    max-width: 400px;
+}

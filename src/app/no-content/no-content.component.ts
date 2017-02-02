@@ -4,7 +4,10 @@ import { Component } from '@angular/core';
   selector: 'no-content',
   template: `
     <div>
-      <h1>404: page missing</h1>
+      <h3>feito com &#9829; pela</h3>
+      <a href="https://pluga.co/">
+      <img src="../../assets/img/pluga-logo-blue.svg" height="100%">
+      </a>
     </div>
   `
 })

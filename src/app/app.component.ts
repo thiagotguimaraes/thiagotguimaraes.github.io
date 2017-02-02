@@ -1,12 +1,15 @@
 /*
  * Angular 2 decorators and services
  */
-import {
-  Component,
-  OnInit,
-  ViewEncapsulation
-} from '@angular/core';
-import { AppState } from './app.service';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { HttpService } from './service/http-service';
+import { WidgetComponent } from './widget/widget.component';
+import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
+import { AppState } from './app.service'
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+
 
 /*
  * App Component
@@ -18,55 +21,74 @@ import { AppState } from './app.service';
   styleUrls: [
     './app.component.css'
   ],
-  template: `
-    <nav>
-      <a [routerLink]=" ['./'] " routerLinkActive="active">
-        Index
-      </a>
-      <a [routerLink]=" ['./home'] " routerLinkActive="active">
-        Home
-      </a>
-      <a [routerLink]=" ['./detail'] " routerLinkActive="active">
-        Detail
-      </a>
-      <a [routerLink]=" ['./barrel'] " routerLinkActive="active">
-        Barrel
-      </a>
-      <a [routerLink]=" ['./about'] " routerLinkActive="active">
-        About
-      </a>
-    </nav>
-
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-
-    <pre class="app-state">this.appState.state = {{ appState.state | json }}</pre>
-
-    <footer>
-      <span>WebPack Angular 2 Starter by <a [href]="url">@AngularClass</a></span>
-      <div>
-        <a [href]="url">
-          <img [src]="angularclassLogo" width="25%">
-        </a>
-      </div>
-    </footer>
-  `
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
-  public angularclassLogo = 'assets/img/angularclass-avatar.png';
-  public name = 'Angular 2 Webpack Starter';
-  public url = 'https://twitter.com/AngularClass';
+  public data: Array<Object>;
+  public currentObject: Object;
+  private dataLoaded: Boolean = false;
+  private targetObject: Object;
+  private source: string;
+  private pageNotFound: Boolean;
 
   constructor(
-    public appState: AppState
-  ) {}
+    public http: HttpService,
+    private route: ActivatedRoute,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    private appService: AppState
+  ) { }
 
   public ngOnInit() {
-    console.log('Initial App State', this.appState.state);
+    this.router.events.map((event) => {
+      if (event instanceof NavigationEnd) {
+        this.source = event.urlAfterRedirects.slice(1);
+        return this.source;
+      }
+      return null;
+    }).subscribe((res) => {
+      console.log(res)
+      if (this.dataDidLoaded()) {
+        this.getTargetObject(this.data);
+      } else {
+        this.appService.getMockData().subscribe(data => {
+          this.data = data;
+          this.dataLoaded = true;
+          this.getTargetObject(data);
+        })
+      }
+    });
   }
 
+
+  getTargetObject(data) {
+    if (data) {
+      for (let i = 0; i < data.length; i++) {
+        if (data[i]['app_id'] === this.source) {
+          this.targetObject = data[i];
+          this.pageNotFound = false;
+          break;
+        }
+        this.pageNotFound = true;
+      }
+      this.currentObject = this.targetObject;
+    }
+  }
+
+
+
+  dataDidLoaded(): Boolean {
+    if (this.dataLoaded) {
+      return true;
+    } else {
+      return false
+    }
+  }
+
+
 }
+
+
 
 /*
  * Please review the https://github.com/AngularClass/angular2-examples/ repo for

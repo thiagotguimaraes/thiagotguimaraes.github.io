@@ -1,0 +1,8 @@
+{
+  "main": {
+    "js": "/thiagotguimaraes.github.io/main.bundle.js"
+  },
+  "polyfills": {
+    "js": "/thiagotguimaraes.github.io/polyfills.bundle.js"
+  }
+}

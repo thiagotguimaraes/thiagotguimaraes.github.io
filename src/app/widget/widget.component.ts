@@ -1,3 +1,4 @@
+import { AutomationGroup } from './../model/entities/automation-group';
 import { Component, Input, OnChanges, SimpleChanges, SimpleChange } from '@angular/core';
 
 console.log('`Widget` component loaded asynchronously');
@@ -10,8 +11,8 @@ console.log('`Widget` component loaded asynchronously');
   templateUrl: './widget.component.html'
 })
 export class WidgetComponent implements OnChanges {
-  @Input() currentObject: Object;
-  private _currentObject: Object;
+  @Input() currentObject: AutomationGroup;
+  private _currentObject: AutomationGroup;
   public currentList: Array<Object>;
 
   // TypeScript public modifiers
@@ -20,7 +21,7 @@ export class WidgetComponent implements OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     const currentObject: SimpleChange = changes['currentObject'];
     if (currentObject.currentValue != undefined) {
-      this.currentList = currentObject.currentValue['automationList'];
+      this.currentList = currentObject.currentValue.automationList;
     }
   }
 

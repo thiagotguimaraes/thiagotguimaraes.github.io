@@ -6,6 +6,7 @@ import { WidgetComponent } from './widget/widget.component';
 import { Router, ActivatedRoute, Params, NavigationEnd } from '@angular/router';
 import { AppState } from './app.service'
 import { AppConstantService } from './service/app-constant-service';
+import { AutomationGroup } from './model/entities/automation-group';
 import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
@@ -25,9 +26,9 @@ import 'rxjs/add/operator/mergeMap';
 })
 export class AppComponent implements OnInit {
   private data: Array<Object>;
-  private currentObject: Object;
+  private currentObject: AutomationGroup;
   private dataLoaded: Boolean = false;
-  private targetObject: Object;
+  private targetObject: AutomationGroup;
   private source: string;
   private pageNotFound: Boolean;
   private url: string = AppConstantService.API().MOCK.API_MOCK;
@@ -47,7 +48,7 @@ export class AppComponent implements OnInit {
       }
       return null;
     }).subscribe((res) => {
-      console.log(res)
+      console.log("url parameter: " + res)
       if (this._dataDidLoaded()) {
         this._getTargetObject(this.data);
       } else {
@@ -55,6 +56,9 @@ export class AppComponent implements OnInit {
           this.data = data;
           this.dataLoaded = true;
           this._getTargetObject(data);
+        }, error => {
+          console.log("Erro: " + error);
+          this.pageNotFound = true;
         })
       }
     });

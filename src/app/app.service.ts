@@ -40,8 +40,7 @@ export class AppState {
   }
 
   public getMockData(url) {
-    return this.http.get(url).map(res => {
-      return res;
-    });
+    return this.http.get(url).map(res => res);
+    // error => { throw (excpetion) });
   }
 }
